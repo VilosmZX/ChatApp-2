@@ -5,7 +5,8 @@ const passport          = require('passport');
 const { isLoggedIn, isLoggedOut }    = require('../middleware/auth');
 const { getModel }      = require('./db');   
 const passportInit      = require('./config/passport.config');
-const bcrypt            = require('bcrypt');                     
+const bcrypt            = require('bcrypt');         
+const methodOverride    = require('method-override');            
 
 const db = getModel();
 passportInit(db);
@@ -14,6 +15,7 @@ router.use(express.urlencoded({ extended: true }));
 router.use(session({ secret: '123', resave: false, saveUninitialized: false }));
 router.use(passport.initialize());
 router.use(passport.session());
+router.use(methodOverride('_method'));
 
 
 
@@ -29,6 +31,12 @@ router.post('/login', isLoggedOut, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
 }));
+
+router.delete('/logout', (req, res) => {
+    req.logout((err) => {
+        if(!err) return res.redirect('/');
+    });
+});
 
 router.get('/register', isLoggedOut, (req, res) => res.render('register'));
 
