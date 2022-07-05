@@ -6,14 +6,25 @@ module.exports = function (db) {
     passport.use(new LocalStorage({usernameField: 'email'}, 
     async (email, password, done) => {
         try {
-            const user = db.exists({ email });
-            if(!user) return done(null, false, { message: 'User tidak ditemukan' });
-            if(await bcrypt.compare(password, user.password)) {
-                return done(null, user);
-            }
-            return done(null, false, { message: 'Password salah!' });
+            db.findOne({email}, async (err, user) => {
+                if(err) return done(err);
+                if(!user) return done(null, false, { message: 'Email salah!' });
+                if(await bcrypt.compare(password, user.password)) {
+                    return done(null, user);
+                }
+                return done(null, false, { message: 'Password salah!' });
+            });
         } catch(err) {
             return done(err);
         }
     }));
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
+
+    passport.deserializeUser((id, done) => {
+        db.findById(id, (err, user) => {
+            done(null, user);
+        });
+    });
 };
