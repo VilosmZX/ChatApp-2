@@ -13,6 +13,9 @@
             <div class="top__container">
                 <p class="yourname">Halo, <%=req.user.username%></p>
                 <button onclick="changeName()" class="changename__btn">Change Name</button>
+                <form method="POST" action="/logout?_method=DELETE">
+                    <button class="changename__btn">Logout</button>
+                </form>
                 <button id="myBtn" class="changename__btn">Changelog</button>
             </div>
             <ul>
