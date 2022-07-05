@@ -30,6 +30,7 @@ form h1 {
     background-color: #fff;
     flex-direction: column;
     position: relative;
+    min-height: 60%;
 }
 
 .form-group {
