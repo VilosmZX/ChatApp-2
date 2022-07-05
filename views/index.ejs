@@ -5,9 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="main__container">
+            <div class="top__container">
+                <p class="yourname">Halo, <%=req.user.username%></p>
+                <button onclick="changeName()" class="changename__btn">Change Name</button>
+                <button id="myBtn" class="changename__btn">Changelog</button>
+            </div>
+            <ul>
+            </ul>
+            <div class="bottom__container">
+                <input type="text" class="message">
+                <button onclick="sendMsg()" class="send__button">&#8594;</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal__container" id="myModal">
+        <div class="modal__content">
+            <span class="close" id="myBtn">&times;</span>
+            <p class="changelog__text">- Nambahin fitur change name (Update 1)</p>
+            <p class="changelog__text">- Nambahin fitur broadcast saat change name (Update 2)</p>
+            <p class="changelog__text">- Bisa ngirim gambar sama file (comming soon)</p>
+        </div>
+    </div>
+    <script src="scripts/animation.js"></script>
+    <script src="scripts/client.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        } 
+    </script>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/scripts/client.js"></script>
