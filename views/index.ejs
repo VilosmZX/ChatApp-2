@@ -11,7 +11,7 @@
     <div class="container">
         <div class="main__container">
             <div class="top__container">
-                <p class="yourname">Halo, <%=req.user.username%></p>
+                <p class="yourname">Halo, <span><%=req.user.username%></span></p>
                 <button onclick="changeName()" class="changename__btn">Change Name</button>
                 <form method="POST" action="/logout?_method=DELETE">
                     <button class="changename__btn">Logout</button>
@@ -34,8 +34,6 @@
             <p class="changelog__text">- Bisa ngirim gambar sama file (comming soon)</p>
         </div>
     </div>
-    <script src="scripts/animation.js"></script>
-    <script src="scripts/client.js"></script>
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
