@@ -212,3 +212,8 @@ canvas {
 .changelog__text {
     font-family: 'Gantari', sans-serif;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
