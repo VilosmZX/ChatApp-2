@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,400;0,700;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.main__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.top__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.changename__btn {
+    outline: none;
+    color: white;
+    background: linear-gradient(to right, #3494E6 50%, #EC6EAD 100%);
+    border: none;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin-left: 10px;
+    transition: all 0.15s ease;
+}
+
+.changename__btn:hover {
+    opacity: 0.7;
+}
+
+.changename__btn:active {
+    opacity: 0.5;
+}
+
+.yourname {
+    font-family: 'Gantari', sans-serif;
+    font-weight: 300;
+}
+
+
+ul {
+    list-style: none;
+    margin-top: 20px;
+    height: 50vh;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -3px -3px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    transition: all 0.15s ease;
+}
+
+.msg__container {
+    display: flex;
+    justify-content: left;
+}
+
+ul li {
+    display: inline-block;
+    margin: 20px 10px;
+    font-family: 'Gantari', sans-serif;
+    padding: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -3px -3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease;
+    border-radius: 20px;
+}
+
+ul li:hover {
+    opacity: 0.7;
+}
+
+.bottom__container {
+    display: flex;
+    margin-top: 15px;
+}
+
+.message {
+    flex: 1;
+    height: 50px;
+    border: none;
+    font-family: 'Gantari', sans-serif;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -3px -3px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.send__button {
+    margin-left: 20px;
+    width: 52px;
+    font-size: 25px;
+    border-radius: 26px;
+    outline: none;
+    border: none;
+    color: white;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.1);
+    background: #0fd733;
+    transition: all 0.15s ease;
+}
+
+.send__button:hover {
+    color: #0fd733;
+    background: white;
+}
+
+.broadcast {
+    background: linear-gradient(to right, #d5106c, #2126ba);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    fill: transparent;
+}
+
+.owner {
+    color: #23abff;
+}
+
+.yourmsg__container {
+    display: flex;
+    justify-content: right;
+}
+
+.yourmsg {
+    overflow: scroll;
+    word-wrap: break-word;
+    display: flex;
+    width: fit-content;
+}
+
+@media screen and (max-width: 500px) {
+    .message {
+    }
+
+    .send__button {
+        width: 60px;
+        border-radius: 30px;
+    }
+
+    ul {
+        height: 70vh;   
+    }
+}
+
+canvas {
+    margin-top: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
+
+ /* The Modal (background) */
+ .modal__container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: all 0.15s ease-out;
+  }
+  
+  /* Modal Content/Box */
+  .modal__content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    transition: all 0.15s ease-out;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.15s ease-out;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+
+.changelog__text {
+    font-family: 'Gantari', sans-serif;
+}
